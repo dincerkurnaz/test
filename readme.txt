@@ -1,4 +1,4 @@
-mkdir -p /web/uploads
+mkdir -p /web/download
 apt-get install php5-fpm
 curl https://getcaddy.com | bash
 caddy -quic 
