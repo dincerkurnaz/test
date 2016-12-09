@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-rm -rf /web/uploads/*
+rm -rf /web/download/*

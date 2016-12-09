@@ -6,4 +6,4 @@ Cache-Control "max-age=86400"
 }
 fastcgi / /var/run/php5-fpm.sock php
 root /web
-browse /uploads ./upload.tpl
+browse /download ./download.tpl
