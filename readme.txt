@@ -5,6 +5,9 @@ caddy -quic
 
 0 * * * * /web/sil.sh
 
+
+go get github.com/mholt/caddy/caddy
+
 echo "# test" >> README.md
 git init
 git add README.md
