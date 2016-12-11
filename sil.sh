@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-rm -rf /web/download/*
+find /web/download/ -maxdepth 1 -cmin +60 -name "*" -exec /bin/rm -f {} \;

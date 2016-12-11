@@ -1,9 +1,52 @@
 quic.dincersalihkurnaz.com
 gzip
 header / {
-Server Quic
+Server Quictransfer.com
 Cache-Control "max-age=86400"
 }
-fastcgi / /var/run/php5-fpm.sock php
 root /web
-browse /download ./download.tpl
+#minify /media
+#browse /download ./download.tpl
+rewrite  {
+  r ^/uploaded/(\w+)/?$
+  to /uploaded.php?filecode={1}
+}
+
+rewrite {
+  r ^/error/(\w+)/?$
+  to /error.php?error={1}
+}
+
+rewrite {
+	r ^/download/(\w+)/?$
+	to /download.php?filecode={1}
+}
+
+rewrite {
+	r ^/check-stats/?$
+	to /check-stats.php
+}
+
+rewrite {
+	r ^/stats/(\w+)/?$
+	to /stats.php?statscode={1}
+}
+
+fastcgi / /var/run/php5-fpm.sock php
+#errors visible
+log logs/access.log {
+      rotate {
+        size      50
+        age       7
+        keep      5
+      }
+    }
+ 
+    errors {
+      log logs/error.log {
+        size      50
+        age       7
+        keep      5
+}
+}
+
